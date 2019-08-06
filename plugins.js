@@ -10,8 +10,9 @@ module.exports = ( ) => {
 
   // gather potential plugin subdirectories
   const rootDirs = process.env.PLUGIN_DIRS.split( ',' )
-  let pluginDirs = [ ]
+  let pluginDirs = ['plugins']
   rootDirs.forEach( dir => {
+    console.log(dir);
     if ( fs.existsSync( dir ) ) {
       let dirs = getDirectories( dir )
       pluginDirs.push( ...dirs, dir )
