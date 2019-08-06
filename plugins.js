@@ -10,11 +10,13 @@ module.exports = ( ) => {
 
   // gather potential plugin subdirectories
   const rootDirs = process.env.PLUGIN_DIRS.split( ',' )
-  let pluginDirs = ['./plugins']
+  let pluginDirs = []
   rootDirs.forEach( dir => {
     console.log(dir);
     if ( fs.existsSync( dir ) ) {
+      console.log('directory exists');
       let dirs = getDirectories( dir )
+      console.log(dirs);
       pluginDirs.push( ...dirs, dir )
     } else
       winston.warn( `specified plugin directory does not exist: ${dir}` )
